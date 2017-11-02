@@ -1,20 +1,32 @@
 import java.*;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class arrayLargestNumber{
 
 	public static void main(String[] args) {
-		int[] myArray = new int[15];
-		int value = 1;
-		int greatest_value = 0;
+
+		int number_of_ints = Integer.parseInt(args[0]);
+
+		int[] myArray = new int[number_of_ints];
+
+		System.out.println("This program will display the largest number in " + args[0] + " integers that you enter into the console.\n");
+
+		Scanner myScanner = new Scanner(System.in);
+
+		System.out.println("Please enter in " + args[0] + " integers: ");
 		
-		for (int i = 0; i < 15; i++) {
-			myArray[i] = i+1;
-		}	
-	
+		for (int i = 0; i < number_of_ints; i++) {
+
+			myArray[i] = myScanner.nextInt();	
+		
+		}
+				
+		int greatest_value = myArray[0];
+		
 		for (int i = 0; i < myArray.length; i++) {
 			if (!(i == (myArray.length - 1))) {
-				if (myArray[i] < myArray[i+1]) {
+				if (greatest_value < myArray[i]) {
 					greatest_value = myArray[i];
 				}
 			}
